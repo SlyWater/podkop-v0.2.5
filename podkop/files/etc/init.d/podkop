@@ -552,7 +552,15 @@ add_set() {
     nft add table inet PodkopTable
     log "Create set $set_name"
     nft add chain inet PodkopTable mangle { type filter hook prerouting priority -150 \; policy accept \;}
-    nft add set inet PodkopTable "$set_name" { type ipv4_addr\; flags interval\; auto-merge\; }
+    case "$set_name" in
+    *subnets)
+        nft add set inet PodkopTable "$set_name" { type ipv4_addr\; flags interval\; auto-merge\; }
+        ;;
+    *)
+        nft add set inet PodkopTable "$set_name" { type ipv4_addr\; }
+        ;;
+    esac
+
     if [ "$connect" = "main" ]; then
         config_get mode "$connect" "mode"
     else

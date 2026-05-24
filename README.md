@@ -6,7 +6,7 @@
 
 ## Автоматическая
 ```
-sh <(wget -O - https://raw.githubusercontent.com/savvadim/podkop-v0.2.5/refs/heads/main/install.sh)
+sh <(wget -O - https://raw.githubusercontent.com/slywater/podkop-v0.2.5/refs/heads/main/install.sh)
 ```
 
 Скрипт также предложит выбрать, какой туннель будет использоваться. Для выбранного туннеля будут установлены нужные пакеты, а для Wireguard и AmneziaWG также будет предложена автоматическая настройка - прямо в консоли скрипт запросит данные конфига. Для AmneziaWG можно также выбрать вариант с использованием конфига обычного Wireguard и автоматической обфускацией до AmneziaWG.
